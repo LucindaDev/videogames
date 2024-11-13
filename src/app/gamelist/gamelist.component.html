@@ -1,38 +1,41 @@
-<h1>Videogames</h1>
-<div class="select-container">
-    <select class="form-select" aria-label="Select Platform">
-        <option selected>Select Platform</option>
-        <option value="pc">Pc</option>
-        <option value="browser">Browser</option>
-    </select>
-    OR
-    <select class="form-select" aria-label="Slect Category">
-        <option selected>Slect Category</option>
-        <option value="shooter">Shooter</option>
-        <option value="moba">Moba</option>
-        <option value="battle-royale">Battle Royale</option>
-        <option value="social">Social</option>
-        <option value="open-world">Open World</option>
-        <option value="anime">Anime</option>
-        <option value="sports">Sports</option>
-        <option value="martial-arts">Martial Arts</option>
-    </select>
+<div class="title-container">
+    <h1>The Videogames API</h1>
+    <div class="select-container">
+        <select class="form-select" aria-label="Select Platform" (change)="onchangePlatform($event)">
+            <option value="all">All</option>
+            <option value="pc">Pc</option>
+            <option value="browser">Browser</option>
+        </select>
+        OR
+        <select class="form-select" aria-label="Select Category" (change)="onchangeCategory($event)">
+            <option value="all">All</option>
+            <option value="shooter">Shooter</option>
+            <option value="MOBA">Moba</option>
+            <option value="battle-royale">Battle Royale</option>
+            <option value="social">Social</option>
+            <option value="open-world">Open World</option>
+            <option value="anime">Anime</option>
+            <option value="sports">Sports</option>
+            <option value="martial-arts">Martial Arts</option>
+        </select>
+    </div>
 </div>
 
 <div id="result">
-    <div class="game-card">
-        <img src="https://www.freetogame.com/g/466/thumbnail.jpg"
-            alt="Valorant"
-            class="game-card__img">
-        <h2 class="game-card__title">Valorant</h2>
-        <div class="game-card__description-container"><h3>Category: </h3>
-        <p>Shooter</p></div>
-        <div class="game-card__description-container"><h3>Platform: </h3>
-        <p>PC</p></div>
-        <div class="game-card__description-container">
-            <h3>Description: </h3>
-            <p class="game-card__description">Test your mettle in Riot Games’ character-based FPS shooter Valorant.</p>
+    @for(game of games; track $index){
+        <div class="game-card">
+            <img src={{game.thumbnail}}
+                alt="Valorant"
+                class="game-card__img">
+            <h2 class="game-card__title">{{game.title}}</h2>
+            <div class="game-card__description-container"><h3>Category: </h3>
+            <p>{{game.genre}}</p></div>
+            <div class="game-card__description-container"><h3>Platform: </h3>
+            <p>{{game.platform}}</p></div>
+            <div class="game-card__description-container">
+                <h3>Description: </h3>
+                <p class="game-card__description">{{game.short_description}}</p>
+            </div>
         </div>
-        
-    </div>
+    }
 </div>
