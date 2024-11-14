@@ -67,17 +67,28 @@ h1 {
 }
 .select-container {
     margin-bottom: 50px;
-    width: fit-content;
+    width: 600px;
     display: flex;
     justify-content: flex-start;
     gap: 10px;
     align-items: center;
 }
 
-select {
+input {
     color: #fff;
     background-color: #000;
     width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+select {
+    color: #fff;
+    background-color: #000;
+    width: 50%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;

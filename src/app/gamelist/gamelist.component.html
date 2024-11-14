@@ -1,6 +1,9 @@
 <div class="title-container">
     <h1>The Videogames API</h1>
     <div class="select-container">
+        <form [formGroup]="searchForm" class="mb-4">
+            <input type="text" class="form-control" placeholder="Buscar por título" formControlName="searchTitle">
+        </form>
         <select class="form-select" aria-label="Select Platform" (change)="onchangePlatform($event)">
             <option value="all">All</option>
             <option value="pc">Pc</option>
@@ -22,20 +25,22 @@
 </div>
 
 <div id="result">
-    @for(game of games; track $index){
-        <div class="game-card">
-            <img src={{game.thumbnail}}
-                alt="Valorant"
-                class="game-card__img">
-            <h2 class="game-card__title">{{game.title}}</h2>
-            <div class="game-card__description-container"><h3>Category: </h3>
-            <p>{{game.genre}}</p></div>
-            <div class="game-card__description-container"><h3>Platform: </h3>
-            <p>{{game.platform}}</p></div>
-            <div class="game-card__description-container">
-                <h3>Description: </h3>
-                <p class="game-card__description">{{game.short_description}}</p>
-            </div>
+    @for(game of filteredGames; track $index){
+    <div class="game-card">
+        <img src={{game.thumbnail}} alt="Valorant" class="game-card__img">
+        <h2 class="game-card__title">{{game.title}}</h2>
+        <div class="game-card__description-container">
+            <h3>Category: </h3>
+            <p>{{game.genre}}</p>
         </div>
+        <div class="game-card__description-container">
+            <h3>Platform: </h3>
+            <p>{{game.platform}}</p>
+        </div>
+        <div class="game-card__description-container">
+            <h3>Description: </h3>
+            <p class="game-card__description">{{game.short_description}}</p>
+        </div>
+    </div>
     }
 </div>
